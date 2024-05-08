@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request
+from lib_version_remla import return_version
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Get the version of the library by first instantiating the class VersionUtil and then calling the get_version method
+    version = return_version.VersionUtil.get_version()
+    model_service_url = os.environ.get('MODEL_SERVICE_URL')
+    return render_template('index.html', version=version, model_service_url=model_service_url) 
 
 @app.route('/predict', methods=['POST'])
 def predict():

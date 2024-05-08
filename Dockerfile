@@ -17,5 +17,7 @@ COPY . .
 # Copy the templates folder
 COPY templates /app/templates
 
+ENV MODEL_SERVICE_URL=http:127.0.0.1:8080
+
 # Set the command to run the Flask app
 CMD ["python", "app.py"]
