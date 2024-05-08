@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "remla-group10-app"
+version = "0.1.0"
+description = "This is a small app that allows users to interface with the machine learning model."
+authors = ["Jan <j2000.vdm@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^3.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
