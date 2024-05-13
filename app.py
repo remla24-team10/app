@@ -12,7 +12,7 @@ def index():
     model_service_url = os.environ.get('MODEL_SERVICE_URL')
     return render_template('index.html', version=version, model_service_url=model_service_url) 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict')
 def predict():
     # Get the value entered in the textbox
     url = request.form.get('url', '')
@@ -22,8 +22,8 @@ def predict():
     }
     
     
-    model_service_url = os.environ.get('MODEL_SERVICE_URL')
-    response = requests.post(model_service_url + "/predict", json=data)
+    # model_service_url = os.environ.get('MODEL_SERVICE_URL')
+    response = requests.post('http://model-service:8080/predict', json=data)
 
     # Pass the value to the prediction page template
     return render_template('prediction.html', url=url)
