@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from lib_version_remla import return_version
 import os
+import requests
 
 app = Flask(__name__)
 
@@ -16,8 +17,17 @@ def predict():
     # Get the value entered in the textbox
     url = request.form.get('url', '')
     
+    data = {
+        "url": "hello"
+    }
+    
+    
+    model_service_url = os.environ.get('MODEL_SERVICE_URL')
+    response = requests.post(model_service_url + "/predict", json=data)
+
     # Pass the value to the prediction page template
     return render_template('prediction.html', url=url)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
