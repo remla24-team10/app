@@ -21,8 +21,8 @@ def predict():
         "url": url
     }    
     
-    # model_service_url = os.environ.get('MODEL_SERVICE_URL')
-    response = requests.post('http://model-service:8080/predict', json=data)
+    model_service_url = os.environ.get('MODEL_SERVICE_URL')
+    response = requests.post(model_service_url, json=data)
     # Assuming response contains prediction results
     prediction_result = response.json()
 
