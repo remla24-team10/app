@@ -13,6 +13,17 @@
     <p>Enter the URL to predict if it's a phishing website:</p>
     <form action="/predict" method="post">
         <input type="text" name="url" placeholder="Enter URL">
+        
+        <fieldset>
+            <legend>Truth Label:</legend>
+            <input type="radio" id="phishing" name="prediction" value="phishing">
+            <label for="phishing">Phishing</label><br>
+            <input type="radio" id="legitimate" name="prediction" value="legitimate">
+            <label for="legitimate">Legitimate</label><br>
+            <input type="radio" id="ignore" name="prediction" value="ignore" checked>
+            <label for="ignore">Ignore</label>
+        </fieldset>
+        
         <button type="submit">Predict</button>
     </form>
 </body>
