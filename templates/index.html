@@ -7,12 +7,23 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 </head>
 <body>
-    <h1>Group 10 App</h1>
+    <h1>Group 10 App - GOOD model</h1>
     <h2>The current version of the version-util library is: {{version}} </h2>
     <p>The model service url defined by the environment variable is: {{model_service_url}}</p>
     <p>Enter the URL to predict if it's a phishing website:</p>
     <form action="/predict" method="post">
         <input type="text" name="url" placeholder="Enter URL">
+        
+        <fieldset>
+            <legend>Truth Label:</legend>
+            <input type="radio" id="phishing" name="prediction" value="phishing">
+            <label for="phishing">Phishing</label><br>
+            <input type="radio" id="legitimate" name="prediction" value="legitimate">
+            <label for="legitimate">Legitimate</label><br>
+            <input type="radio" id="ignore" name="prediction" value="ignore" checked>
+            <label for="ignore">Ignore</label>
+        </fieldset>
+        
         <button type="submit">Predict</button>
     </form>
 </body>
