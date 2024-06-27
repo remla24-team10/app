@@ -1,4 +1,4 @@
-# App
+# 🖥️ App
 This application uses model services after a query of the user to display the results of querying the phising-detection model. 
 
 ## Running the app in a docker container
